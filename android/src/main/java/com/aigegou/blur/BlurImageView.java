@@ -24,7 +24,7 @@ public class BlurImageView extends ImageView {
     private final BlurImageView thisImg;
     private String color;
     private int radius;
-    private int sampling;
+    private int sampling = 1;
     private String imageUrl;
     private GetHeadBitmapTask getheadBitmapTask;
 
@@ -32,14 +32,12 @@ public class BlurImageView extends ImageView {
         super(context);
         this.context = context;
         thisImg = this;
-        this.setScaleType(ScaleType.FIT_XY);
     }
 
     public BlurImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.context = context;
         thisImg = this;
-        this.setScaleType(ScaleType.FIT_XY);
     }
 
     public void setImageUrlAndUpdate(String imageUrl) {
@@ -55,6 +53,32 @@ public class BlurImageView extends ImageView {
         setRadius(radius);
         Render();
     }
+
+    public void setResizeMode(String type) {
+
+        ImageView.ScaleType scaleType = ScaleType.FIT_XY;
+
+        if (type.equals("contain")){
+            scaleType = ScaleType.FIT_CENTER;
+        }
+
+        if (type.equals("stretch")){
+            scaleType = ScaleType.FIT_XY;
+        }
+
+        if(type.equals("cover")){
+            scaleType = ScaleType.CENTER_CROP;
+        }
+
+        if(type.equals("center")){
+            scaleType = ScaleType.CENTER_INSIDE;
+        }
+
+        this.setScaleType(scaleType);
+
+        this.Render();
+    }
+
 
     private void setRadius(int radius) {
         this.radius = radius;

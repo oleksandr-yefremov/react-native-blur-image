@@ -37,4 +37,9 @@ public class BlurImageViewManager extends SimpleViewManager<BlurImageView> {
         String url = sources.getString("uri");
         view.setImageUrlAndUpdate(url);
     }
+
+    @ReactProp(name = "resizeMode")
+    public void setResizeMode(BlurImageView view, String type) {
+        view.setResizeMode(type);
+    }
 }
