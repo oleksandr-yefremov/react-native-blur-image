@@ -21,11 +21,12 @@ public class BlurImageViewPackage implements ReactPackage {
         return modules;
     }
 
-    @Override
-    public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return Collections.emptyList();
-
-    }
+    // Fix for v0.47+. RN creates modules automatically, listing is not required
+    // @Override
+    // public List<Class<? extends JavaScriptModule>> createJSModules() {
+    //     return Collections.emptyList();
+    // 
+    // }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
