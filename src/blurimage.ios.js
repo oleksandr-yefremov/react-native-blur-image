@@ -1,5 +1,5 @@
-import { Image } from 'react-native'
+import { ImageBackground } from 'react-native'
 import { PropTypes } from 'react'
 
-export default Image
+export default ImageBackground
 
